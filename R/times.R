@@ -256,11 +256,11 @@ function(x, format. = "h:m:s", simplify = FALSE, ...)
     ## To change this (e.g., have times(1.5) format as 36:00:00), simply
     ## comment the code below, and make the corresponding change in
     ## print.times().
-    days <- abs(floor(x))
-    if(any(days[!nas] > 0)) {
-        attributes(x) <- att
-        return(format(x))
-    }
+    #days <- abs(floor(x))
+    #if(any(days[!nas] > 0)) {
+    #    attributes(x) <- att
+    #    return(format(x))
+    #}
     ## </NOTE>
     sec <- round(24 * 3600 * abs(x))
     hh <- sec %/% 3600
@@ -545,8 +545,8 @@ function(x, digits, quote = FALSE, prefix = "", simplify, ...)
         simplify <- FALSE
     xo <- x
     ## print whole days (no fraction) as regular integers
-    if(all(is.na(x)) || any(x[!is.na(x)] >= 1))
-        cat("Time in days:\n")
+    #if(all(is.na(x)) || any(x[!is.na(x)] >= 1))
+    #    cat("Time in days:\n")
     x <- format.times(x, simplify = simplify)
     NextMethod("print", quote = quote)
     invisible(xo)
